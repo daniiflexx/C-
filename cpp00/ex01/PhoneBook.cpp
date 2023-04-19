@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <string.h>
 #include <stdlib.h>
@@ -47,32 +48,17 @@ int PhoneBook::add()
 
 int PhoneBook::print_ten(std::string str, int num)
 {
-    int i,j;
-
-    i = 0;
     if (num == -1)
     {
-        j = 0;
-        while (i < 10)
-        {
-            if (10 - i <= (int)str.length())
-            {
-				if (str.length() > 10 && i == 9)
-					std::cout << ".";
-				else
-					std::cout << str[j++];
-            }
-            else
-               std::cout << " ";       
-            i++;
-        }
+        if (str.length() > 10)
+            std::cout << std::setw(9) << str.substr(0, 9) << '.';
+        else
+            std::cout << std::setw(10) << str;
+        std::cout << "|";
     }
     else {
-        while(i++ < 9)
-            std::cout << " ";
-        std::cout << num;  
+        std::cout << std::setw(10) << num << "|";
     }
-    std::cout << "|";
     return (0);
 }
 
@@ -99,7 +85,7 @@ int PhoneBook::search()
         if (num < 0 || num > 7)
             std::cout << "ERROR: el número debe estar en el intervalo [0,7]\n";
     }
-    if (num >= this->index)
+    if (num >= this->index && !this->full)
     {
         std::cout << "Empty index\n";
         return (1);

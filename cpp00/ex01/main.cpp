@@ -11,7 +11,7 @@ int main()
     << "-ADD: añade un contacto a la agenda\n-SEARCH: busca un contacto de la agenda\n|-------------------------------------|\n->\n->\n->\033[0m\n";
     std::cout << "cmd >> ";
     std::cin >> str;
-    while (str.compare("EXIT") != 0)
+    while (!std::cin.eof() && str.compare("EXIT") != 0)
     {
         if (str.compare("ADD") == 0)
             agenda.add();
