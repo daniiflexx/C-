@@ -1,7 +1,6 @@
 #include <iostream>
-#include <string>
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstring>
+#include <cctype>
 
 int main(int argc, char **argv){
     int i;
@@ -14,8 +13,7 @@ int main(int argc, char **argv){
     }
     for (i=1; i<argc; i++) { 
         for (j = 0; argv[i][j]; j++)
-            if (argv[i][j] >= 'a' && argv[i][j] <= 'z')
-                argv[i][j] -= 32;
+            argv[i][j] = std::toupper(argv[i][j]);
         str += argv[i];
     }
     std::cout << str;

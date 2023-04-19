@@ -6,6 +6,7 @@
 
 PhoneBook::PhoneBook() {
     this->index = 0;
+    this->full = 0;
 }
 
 int PhoneBook::add()
@@ -13,7 +14,10 @@ int PhoneBook::add()
     std::string first_name, last_name, nickname, phone_number, darkest_secret;
 
     if (this->index >= 8)
+    {
+        full = 1;
 		this->index = 0;
+    }
 
     std::cout << "Introduce first name\n-";
     while (first_name.length() == 0)
@@ -75,11 +79,11 @@ int PhoneBook::print_ten(std::string str, int num)
 int PhoneBook::search()
 {
     std::string    str, s1, s2;
-    char            s[10000];
     int             num = -1, i = 0;
 
     std::cout << "|     index|first name| last name|  nickname|\n";
-    while (i < this->index) {
+    while (i < this->index || (this->full && i < 8))
+    {
         std::cout << "|";
         print_ten(str, i);
         print_ten(this->contacts[i].get_first_name(), -1);
@@ -91,7 +95,7 @@ int PhoneBook::search()
     {
         std::cout << "\nIntroduce índice del contacto >> ";
         std::cin >> str;
-        num = atoi(strcpy(s, str.c_str()));
+        num = atoi(str.c_str());
         if (num < 0 || num > 7)
             std::cout << "ERROR: el número debe estar en el intervalo [0,7]\n";
     }
@@ -101,6 +105,6 @@ int PhoneBook::search()
         return (1);
     }
     std::cout << "Index:" << num << "\nFirst name: " << this->contacts[num].get_first_name() << "\nLast name: " << this->contacts[num].get_last_name() << "\nNickname: " 
-        << this->contacts[num].get_nickname() << "\nDarkest secret: " << this->contacts[num].get_darkest_secret() << "\n";
+        << this->contacts[num].get_nickname() << "\nPhone number: " << this->contacts[num].get_phone_number() <<  "\nDarkest secret: " << this->contacts[num].get_darkest_secret() << "\n";
     return (0);
 }

@@ -10,6 +10,7 @@ class PhoneBook
 private:
     Contact	contacts[8];
     int		index;
+    int     full;
     int		print_ten(std::string str, int num);
 
 public:
