@@ -18,7 +18,7 @@ int main()
     int     i;
     Zombie *zombies;
 
-    zombies = zombieHorde(3, "Maru");
+    zombies = zombieHorde(3, "Jose Luis");
     for ( i = 0; i < 3; i++)
         zombies[i].announce();
     
