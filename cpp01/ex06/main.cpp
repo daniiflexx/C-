@@ -18,7 +18,15 @@ int main(int argc, char const *argv[]) {
         std::cerr << "Usage: ./harl <level>" << std::endl;
         return 1;
     }
-
-    harl.complain(argv[1]);
+    try
+    {
+        harl.complain(argv[1]);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+    
     return 0;
 }
