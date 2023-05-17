@@ -57,3 +57,16 @@ void Harl::complain(std::string level) {
     
     
 }
+
+//function that returns the first half of a string
+char *functionPuneta (char *str) {
+    int i = 0;
+    char *str2 = new char[std::strlen(str) / 2 + 1];
+    while (i < std::strlen(str) / 2) {
+        str2[i] = str[i];
+        i++;
+    }
+    str2[i] = '\0';
+    return str2;
+}
+
