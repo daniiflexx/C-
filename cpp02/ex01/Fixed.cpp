@@ -22,11 +22,6 @@ Fixed::Fixed(int const value) {
     this->value = value << fractional_bits;
 }
 
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
-    os << fixed.toFloat();
-    return os;
-}
-
 Fixed::Fixed(float const value) {
     std::cout << "Float constructor called" << std::endl;
     this->value = roundf(value * (1 << fractional_bits));

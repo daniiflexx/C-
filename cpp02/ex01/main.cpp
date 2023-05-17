@@ -12,6 +12,8 @@
 #include <iostream>
 #include "Fixed.hpp"
 
+std::ostream& operator<<(std::ostream &os, const Fixed& fixed);
+
 int main( void ) {
 Fixed a;
 Fixed const b( 10 );
@@ -27,4 +29,9 @@ std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 return 0;
+}
+
+std::ostream& operator<<(std::ostream &os, const Fixed& fixed) {
+    os << fixed.toFloat();
+    return os;
 }
