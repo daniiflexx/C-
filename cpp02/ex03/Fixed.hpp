@@ -25,10 +25,10 @@ class Fixed {
         Fixed(const Fixed &fixed);
         ~Fixed();
         Fixed &operator=(const Fixed &fixed);
-        Fixed operator+(const Fixed &fixed);
-        Fixed operator-(const Fixed &fixed);
-        Fixed operator*(const Fixed &fixed);
-        Fixed operator/(const Fixed &fixed);
+        Fixed const operator+(const Fixed &fixed) const;
+        Fixed const operator-(const Fixed &fixed) const;
+        Fixed const operator*(const Fixed &fixed) const;
+        Fixed const operator/(const Fixed &fixed) const;
         Fixed &operator++(void);
         Fixed &operator--(void);
         Fixed operator++(int);

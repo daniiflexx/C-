@@ -9,15 +9,13 @@
  * 
  */
 
-#include <map>
 #include "Harl.hpp"
 
 Harl::Harl() {
-    actions = std::map<std::string, Action>();
-    actions["DEBUG"] = &Harl::debug;
-    actions["INFO"] = &Harl::info;
-    actions["WARNING"] = &Harl::warning;
-    actions["ERROR"] = &Harl::error;
+    actions['D' - 'A'] = &Harl::debug;
+    actions['I' - 'A'] = &Harl::info;
+    actions['W' - 'A'] = &Harl::warning;
+    actions['E' - 'A'] = &Harl::error;
 }
 
 void Harl::debug() {
@@ -40,7 +38,7 @@ void Harl::complain(std::string level) {
     if (level != "DEBUG" && level != "INFO" && level != "WARNING" && level != "ERROR")
         throw (std::invalid_argument("Invalid level"));
 
-    Action action = actions[level];
+    Action action = actions[level[0] - 'A'];
     (this->*action)();
     
 }

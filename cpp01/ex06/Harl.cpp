@@ -9,15 +9,13 @@
  * 
  */
 
-#include <map>
 #include "Harl.hpp"
 
 Harl::Harl() {
-    actions = std::map<std::string, Action>();
-    actions["DEBUG"] = &Harl::debug;
-    actions["INFO"] = &Harl::info;
-    actions["WARNING"] = &Harl::warning;
-    actions["ERROR"] = &Harl::error;
+    actions['D' - 'A'] = &Harl::debug;
+    actions['I' - 'A'] = &Harl::info;
+    actions['W' - 'A'] = &Harl::warning;
+    actions['E' - 'A'] = &Harl::error;
 }
 
 void Harl::debug() {
@@ -43,30 +41,24 @@ void Harl::complain(std::string level) {
 
     std::cout << "[ " << level << " ]" << std::endl;
 
-    action = actions[level];
+    action = actions[level[0] - 'A'];
     (this->*action)();
     std::cout << std::endl;
     
-    if (level == "DEBUG")
-        complain("INFO");
-    else if (level == "INFO")
-        complain("WARNING");
-    else if (level == "WARNING")
-        complain("ERROR");
-    
-    
-    
-}
-
-//function that returns the first half of a string
-char *functionPuneta (char *str) {
-    int i = 0;
-    char *str2 = new char[std::strlen(str) / 2 + 1];
-    while (i < std::strlen(str) / 2) {
-        str2[i] = str[i];
-        i++;
+    switch (level[0])
+    {
+        case 'D':
+            complain("INFO");
+            break;
+        case 'I':
+            complain("WARNING");
+            break;
+        case 'W':
+            complain("ERROR");
+            break;
+        
+        default:
+            break;
     }
-    str2[i] = '\0';
-    return str2;
+    
 }
-

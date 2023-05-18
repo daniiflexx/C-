@@ -22,7 +22,7 @@ class Harl {
         void info();
         void warning();
         void error();
-        std::map<std::string, Action> actions;
+        Action actions[23];
 
     public:
         Harl();

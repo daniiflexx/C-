@@ -10,6 +10,7 @@
  */
 
 #include <iostream>
+#include <unistd.h>
 #include "Fixed.hpp"
 
 std::ostream& operator<<(std::ostream &os, const Fixed& fixed);
@@ -24,7 +25,7 @@ int main( void ) {
     std::cout << a << std::endl;
     std::cout << b << std::endl;
     std::cout << Fixed::max( a, b ) << std::endl;
-    return 0;
+return 0;
 }
 
 std::ostream& operator<<(std::ostream &os, const Fixed& fixed) {

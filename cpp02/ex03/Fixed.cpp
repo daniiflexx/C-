@@ -45,22 +45,22 @@ Fixed &Fixed::operator=(const Fixed &fixed) {
     return (*this);
 }
 
-Fixed   Fixed::operator+(const Fixed &fixed) {
+Fixed const Fixed::operator+(const Fixed &fixed) const {
     Fixed result(this->toFloat() + fixed.toFloat());
     return (result);
 }
 
-Fixed	Fixed::operator-(const Fixed &fixed) {
+Fixed const	Fixed::operator-(const Fixed &fixed) const {
     Fixed result(this->toFloat() - fixed.toFloat());
     return (result);
 }
 
-Fixed	Fixed::operator*(const Fixed &fixed) {
+Fixed const	Fixed::operator*(const Fixed &fixed) const {
     Fixed result(this->toFloat() * fixed.toFloat());
     return (result);
 }
 
-Fixed	Fixed::operator/(const Fixed &fixed) {
+Fixed const	Fixed::operator/(const Fixed &fixed) const {
     Fixed result(this->toFloat() / fixed.toFloat());
     return (result);
 }
