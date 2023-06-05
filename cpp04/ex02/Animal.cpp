@@ -9,37 +9,31 @@
  * 
  */
 
-#include "AAnimal.hpp"
+#include "Animal.hpp"
 
-AAnimal::AAnimal() {
-    std::cout << "AAnimal default constructor" << std::endl;
+Animal::Animal() {
+    std::cout << "Animal default constructor" << std::endl;
     this->type = "";
 }
 
-AAnimal::~AAnimal() {
-    std::cout << "AAnimal destructor" << std::endl;
+Animal::~Animal() {
+    std::cout << "Animal destructor" << std::endl;
 }
 
-AAnimal::AAnimal(AAnimal& an) {
+Animal::Animal(Animal& an) {
     *this = an;
 }
 
-AAnimal& AAnimal::operator=(AAnimal& an) {
+Animal& Animal::operator=(Animal& an) {
     this->type = an.type;
     return *this;
 }
 
-std::string AAnimal::getType() const {
+std::string Animal::getType() const {
     return this->type;
 }
 
-void AAnimal::makeSound() const {
-    std::cout << "***AAnimal sound here***";
+void Animal::makeSound() const {
+    std::cout << "***Animal sound here***";
     std::cout << std::endl;
 }
-
-std::ostream& operator<<(std::ostream& os, const AAnimal& an) {
-    os << an.getType();
-    return os;
-}
-

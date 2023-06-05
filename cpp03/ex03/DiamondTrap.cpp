@@ -51,3 +51,4 @@ std::string DiamondTrap::getName() {
 }
 
 
+

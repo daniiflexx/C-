@@ -17,12 +17,12 @@
 class AAnimal {
     protected:
         std::string type;
-    public:
         AAnimal();
         AAnimal(AAnimal& an);
+    public:
         virtual ~AAnimal();
         AAnimal& operator=(AAnimal& an);
-        virtual void makeSound() const;
+        virtual void makeSound() const = 0;
         std::string getType() const;
 };
 

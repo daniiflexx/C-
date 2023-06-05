@@ -12,7 +12,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() {
-    std::cout << "ClapTrap constructor called" << std::endl ;
+    std::cout << "ClapTrap default constructor called" << std::endl ;
     this->name = "Doe";
     this->hitPoints = 10;
     this->attackDamage = 0;

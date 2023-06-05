@@ -22,17 +22,16 @@ Cat::~Cat() {
     delete this->brain;
 }
 
-Cat::Cat(Cat & ref) : AAnimal(ref){
-	this->type = ref.getType();
-    this->brain = new Brain(*(ref.getBrain()));
-	std::cout << "A cat was constructed from copy\n";
+Cat::Cat(Cat & ref) {
+	std::cout << "Cat copy constructor\n";
+    this->brain = new Brain();
+	*this = ref;
 }
 
 Cat& Cat::operator=(Cat& an) {
-    this->type = an.type;
-    if (this->brain)
-		delete (this->brain);
-	this->brain = new Brain(*(an.getBrain()));
+    std::cout << "Cat assignation operator" << std::endl;
+    this->AAnimal::operator=(an);
+	*this->brain = *an.brain;
     return *this;
 }
 

@@ -19,7 +19,6 @@ class Dog : public Animal {
         Dog();
         ~Dog();
         Dog(Dog& an);
-        Dog& operator=(Dog& an);
         void makeSound() const;
 };
 

@@ -20,14 +20,9 @@ Cat::~Cat() {
     std::cout << "Cat destructor" << std::endl;
 }
 
-Cat::Cat(Cat & ref) : Animal(ref){
-	this->type = ref.getType();
-	std::cout << "A cat was constructed from copy\n";
-}
-
-Cat& Cat::operator=(Cat& an) {
-    this->type = an.type;
-    return *this;
+Cat::Cat(Cat & ref) {
+	std::cout << "Cat copy constructor\n";
+	*this = ref;
 }
 
 void Cat::makeSound() const {

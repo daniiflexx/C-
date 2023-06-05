@@ -1,5 +1,5 @@
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
-OBJS = main.o Animal.o Cat.o Dog.o WrongAnimal.o WrongCat.o Brain.o
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
+OBJS = $(SRCS:.cpp=.o)
 NAME = program
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++

@@ -11,3 +11,24 @@
 
 #include "AAnimal.hpp"
 
+AAnimal::AAnimal() {
+    std::cout << "AAnimal default constructor" << std::endl;
+    this->type = "";
+}
+
+AAnimal::~AAnimal() {
+    std::cout << "AAnimal destructor" << std::endl;
+}
+
+AAnimal::AAnimal(AAnimal& an) {
+    *this = an;
+}
+
+AAnimal& AAnimal::operator=(AAnimal& an) {
+    this->type = an.type;
+    return *this;
+}
+
+std::string AAnimal::getType() const {
+    return this->type;
+}

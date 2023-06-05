@@ -37,7 +37,7 @@ int Fixed::toInt(void) const {
 
 Fixed::Fixed(const Fixed &fixed) {
     std::cout << "Copy constructor called" << std::endl;
-    value = fixed.getRawBits();
+    *this = fixed;
 }
 
 Fixed::~Fixed() {
@@ -51,12 +51,16 @@ Fixed &Fixed::operator=(const Fixed &fixed) {
 }
 
 int Fixed::getRawBits(void) const {
-    std::cout << "getRawBits member function called" << std::endl;
     return (value);
 }
 
 void Fixed::setRawBits(int const raw) {
     std::cout << "setRawBits member function called" << std::endl;
     value = raw;
+}
+
+std::ostream& operator<<(std::ostream &os, const Fixed& fixed) {
+    os << fixed.toFloat();
+    return os;
 }
 

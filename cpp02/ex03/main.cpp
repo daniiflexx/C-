@@ -19,9 +19,9 @@ bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 int main( void ) {
     Point a(0, 0);
-    Point b(2, 0);
-    Point c(1, 2);
-    Point point(1, 0);
+    Point b(4, 0);
+    Point c(3, 5);
+    Point point(3, 4);
 
     bool result = bsp(a, b, c, point);
 

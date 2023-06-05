@@ -11,46 +11,27 @@
 
 #include "AMateria.hpp"
 
-AMateria::AMateria() : _type("default"), _xp(0) {
-    std::cout << "AMateria default constructor called" << std::endl;
-}
-
-AMateria::AMateria(std::string const & type)  : _type(type), _xp(0) {
-    std::cout << "AMateria constructor called" << std::endl;
-}
-
-AMateria::AMateria(AMateria const & src) {
-    std::cout << "AMateria copy constructor called" << std::endl;
-    *this = src;
-}
-
-AMateria::~AMateria()
+AMateria::AMateria( void ) : _type("")
 {
-    std::cout << "AMateria destructor called" << std::endl;
+    std::cout << "Default constructor for AMateria" << std::endl;
 }
 
-AMateria & AMateria::operator=(AMateria const & rhs)
+AMateria::AMateria( std::string const & type )  : _type(type)
 {
-    std::cout << "AMateria assignation operator called" << std::endl;
-    if (this != &rhs)
-    {
-        this->_type = rhs._type;
-        this->_xp = rhs._xp;
-    }
-    return (*this);
+    std::cout << "String constructor for AMateria" << std::endl;
+}
+
+AMateria::~AMateria( void )
+{
+    std::cout << "Default destructor for AMateria" << std::endl;
 }
 
 std::string const & AMateria::getType() const
 {
-    return (this->_type);
-}
-
-unsigned int AMateria::getXP() const
-{
-    return (this->_xp);
+    return this->_type;
 }
 
 void AMateria::use(ICharacter& target)
 {
-    std::cout << "* shoots an Materia bolt at " << target.getName() << " *" << std::endl;
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

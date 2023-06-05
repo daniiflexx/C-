@@ -22,17 +22,16 @@ Dog::~Dog() {
     delete this->brain;
 }
 
-Dog::Dog(Dog& an) : AAnimal(an){
+Dog::Dog(Dog& an) {
     std::cout << "Dog copy constructor" << std::endl;
-    this->brain = new Brain(*(an.getBrain()));
-    this->type = an.getType();
+    this->brain = new Brain();
+    *this = an;
 }
 
 Dog& Dog::operator=(Dog& an) {
-    this->type = an.type;
-    if (this->brain)
-        delete (this->brain);
-    this->brain = new Brain(*(an.getBrain()));
+    std::cout << "Dog assignation operator" << std::endl;
+    this->AAnimal::operator=(an);
+    *this->brain = *an.brain;
     return *this;
 }
 

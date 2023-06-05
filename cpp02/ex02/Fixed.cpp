@@ -13,14 +13,17 @@
 #include <cmath>
 
 Fixed::Fixed() {
+    std::cout << "Default constructor called" << std::endl;
     value = 0;
 }
 
 Fixed::Fixed(int const value) {
+    std::cout << "Int constructor called" << std::endl;
     this->value = value << fractional_bits;
 }
 
 Fixed::Fixed(float const value) {
+    std::cout << "Float constructor called" << std::endl;
     this->value = roundf(value * (1 << fractional_bits));
 }
 
@@ -33,11 +36,12 @@ int Fixed::toInt(void) const {
 }
 
 Fixed::Fixed(const Fixed &fixed) {
-    value = fixed.getRawBits();
+    std::cout << "Copy constructor called" << std::endl;
+    *this = fixed;
 }
 
 Fixed::~Fixed() {
-
+    std::cout << "Destructor called" << std::endl;
 }
 
 Fixed &Fixed::operator=(const Fixed &fixed) {

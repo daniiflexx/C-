@@ -20,14 +20,9 @@ WrongCat::~WrongCat() {
     std::cout << "WrongCat destructor" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat& an) : WrongAnimal(an){
+WrongCat::WrongCat(WrongCat& an) {
     std::cout << "WrongCat copy constructor" << std::endl;
-    this->type = an.getType();
-}
-
-WrongCat& WrongCat::operator=(WrongCat& an) {
-    this->type = an.type;
-    return *this;
+    *this = an;
 }
 
 void WrongCat::makeSound() const {
