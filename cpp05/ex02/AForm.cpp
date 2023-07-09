@@ -74,6 +74,10 @@ void AForm::execute(const Bureaucrat &executor) const {
         throw AForm::NotSignedException();
 }
 
+const char *AForm::NotSignedException::what() const throw() {
+    return ("Form not signed\n");
+}
+
 std::ostream &operator<<(std::ostream &out, const AForm &form) {
     out << "Form " << form.getName() << " is ";
     if (form.getSigned())
