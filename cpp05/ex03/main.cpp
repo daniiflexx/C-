@@ -30,5 +30,14 @@ int main() {
     AForm* prf;
     prf = someRandomIntern.makeForm("presidential pardon", "Bender");
     std::cout << *prf << std::endl;
+
+    AForm* nrf ;
+    try {
+        nrf = someRandomIntern.makeForm("nonexistent form", "Bender");
+        std::cout << *nrf << std::endl;
+    }
+    catch (Intern::FormNotFoundException &e) {
+        std::cout << e.what() << std::endl;
+    }
     return (0);
 }
