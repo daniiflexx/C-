@@ -32,12 +32,19 @@ t_type getType(std::string str)
             dot++;
         else if (isdigit(str[i]))
             digit++;
+        else if (str[i] == 'f' && i == len - 1)
+            break;
         else
             return (INVALID);
         i++;
     }
     if (dot == 1 && digit > 0)
-        return (FLOAT);
+    {
+        if (str[len - 1] == 'f')
+            return (FLOAT);
+        else
+            return (DOUBLE);
+    }
     else if (dot == 0 && digit > 0)
         return (INT);
     else

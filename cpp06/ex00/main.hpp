@@ -31,7 +31,7 @@ typedef enum e_type
 
 typedef				void (*converter)(std::string const& str);
 
-t_type getType(std::string str);
+t_type  getType(std::string str);
 void    convertFromChar(std::string const& str);
 void    convertFromInt(std::string const& str);
 void    convertFromFloat(std::string const& str);

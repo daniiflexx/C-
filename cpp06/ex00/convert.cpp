@@ -45,19 +45,17 @@ void    convertFromInt(std::string const& str)
 
 void    convertFromFloat(std::string const& str)
 {
-    std::string str2 = str;
-    // float f = std::atof(str.c_str());
-    // char c = static_cast<char>(f);
-    // int i = static_cast<int>(f);
-    // double d = static_cast<double>(f);
+    double d = std::atof(str.substr(0, str.length()).c_str());
+    char c = static_cast<char>(d);
+    int i = static_cast<int>(d);
 
-    // if (i < 32 || i > 126)
-    //     std::cout << "char: Non displayable" << std::endl;
-    // else
-    //     std::cout << "char: '" << c << "'" << std::endl;
-    // std::cout << "int: " << i << std::endl;
-    // std::cout << "float: " << f << ".0f" << std::endl;
-    // std::cout << "double: " << d << ".0" << std::endl;
+    if (i < 32 || i > 126)
+        std::cout << "char: Non displayable" << std::endl;
+    else
+        std::cout << "char: '" << c << "'" << std::endl;
+    std::cout << "int: " << i << std::endl;
+    std::cout << "float: " << d << "f" << std::endl;
+    std::cout << "double: " << d << std::endl;
 }
 
 void    convertFromDouble(std::string const& str)
@@ -72,6 +70,6 @@ void    convertFromDouble(std::string const& str)
     else
         std::cout << "char: '" << c << "'" << std::endl;
     std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << f << ".0f" << std::endl;
-    std::cout << "double: " << d << ".0" << std::endl;
+    std::cout << "float: " << f << "f" << std::endl;
+    std::cout << "double: " << d << std::endl;
 }
