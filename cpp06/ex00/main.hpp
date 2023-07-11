@@ -18,6 +18,7 @@
 # include <climits>
 # include <cfloat>
 # include <cmath>
+# include <cstring>
 
 typedef enum e_type
 {

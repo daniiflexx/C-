@@ -9,6 +9,7 @@
  * 
  */
 
+#include <unistd.h>
 #include "main.hpp"
 #define stringify( name ) #name
 int main(int argc, char **argv)
@@ -21,11 +22,12 @@ int main(int argc, char **argv)
         return (1);
     }
     type = getType(argv[1]);
-    if (type > 4)
+    std::cout << type << std::endl;
+    if (type > 3)
     {
         std::cout << "Error: invalid argument" << std::endl;
         return (1);
     }
-    convert[type](argv[1]);
+        convert[type](argv[1]);
     return (0);
 }
